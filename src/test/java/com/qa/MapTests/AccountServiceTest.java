@@ -10,6 +10,7 @@ import com.qa.persistence.domain.Account;
 import com.qa.persistence.repository.AccountMapRepository;
 
 public class AccountServiceTest {
+	AccountMapRepository repo = new AccountMapRepository();
 
 	@Before
 	public void setup() {
@@ -18,17 +19,18 @@ public class AccountServiceTest {
 	
 	@Test
 	public void addAccountTest() {
-		fail("TODO");	
+		assertEquals("{ \"firstName\": \"Josh\",\"lastName\": \"Josh\",\"accountNumber\": 1}", repo.createAccount("{ \"firstName\": \"Josh\",\"lastName\": \"Josh\",\"accountNumber\": 1}"));	
 	}
 	
 	@Test
 	public void add2AccountsTest() {
-		fail("TODO");	
+		assertNotEquals("{ \"firstName\": \"Josh\",\"lastName\": \"Josh\",\"accountNumber\": 1}", repo.createAccount("{ \"lastName\": \"Josh\",\"accountNumber\": 1}"));	
 	}
 
 	@Test
 	public void removeAccountTest() {
-		fail("TODO");	
+		assertEquals("Account has been removed.",repo.deleteAccount( (long) 1));
+			
 	}
 	
 	@Test
