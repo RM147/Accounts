@@ -40,4 +40,14 @@ public class AccountMapRepository implements AccountRepository{
 		return "Account updated.";
 	}
 
+	public int cycleAccounts(String name) {
+		int count = 0;
+		for (long i=0; i<id;i++) {
+			if(name.equals(accountMap.get(i).getFirstName())) {
+				count++;
+			}
+		}
+		return count;
+	}
+
 }
